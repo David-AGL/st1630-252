@@ -4,9 +4,7 @@
 **Estudiante:** _(nombre y correo @eafit.edu.co)_
 
 > Copia este archivo a tu carpeta de entrega (`entregas/<tu-usuario>/architecture.md`)
-> y complétalo. No lo edites aquí en `plantillas/`. Usa
-> `../ejemplos/architecture_ejemplo.md` como referencia de calidad, no
-> como plantilla para copiar respuestas.
+> y complétalo. No lo edites aquí en `plantillas/`.
 
 ## 1. Diagrama de la arquitectura
 

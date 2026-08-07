@@ -430,7 +430,7 @@ ninguno de los dos debe aparecer en el PR bajo ninguna circunstancia.
 |---|---|---|---|---|
 | **Infraestructura** (S3 + IAM + EMR funcionando) | 30% | El bucket, el rol IAM y el clúster existen con la configuración pedida; el clúster llegó a `WAITING` y se apagó correctamente después | Falta alguna pieza menor (p. ej. el bucket no bloquea acceso público, o el clúster se apagó pero mucho después de terminar) | El clúster nunca llegó a `WAITING`, o la política IAM usa `Resource: "*"` |
 | **Verificación Spark** | 25% | El notebook corre de principio a fin, muestra el schema/filas del Parquet leído desde S3, y el benchmark con tiempos reales | Corre pero con algún paso incompleto (p. ej. sin la captura del DAG) | No hay evidencia de haber ejecutado el notebook contra el clúster real |
-| **`architecture.md`** | 25% | Las 7 secciones completas, con justificaciones específicas a la propia ejecución (no genéricas) y la sección de IAM bien argumentada | Completo pero con justificaciones vagas, o falta la estimación de costo | Plantilla sin completar, o respuestas copiadas de `ejemplos/architecture_ejemplo.md` sin adaptar |
+| **`architecture.md`** | 25% | Las 7 secciones completas, con justificaciones específicas a la propia ejecución (no genéricas) y la sección de IAM bien argumentada | Completo pero con justificaciones vagas, o falta la estimación de costo | Plantilla sin completar, o respuestas genéricas sin adaptar a la propia ejecución |
 | **Bitácora de delegación** | 20% | Completa, con justificación específica por fila, consistente con lo que realmente se delegó | Completa pero genérica | Ausente, o marca como "no delegado" tareas que evidentemente sí lo fueron |
 
 ## Bitácora de delegación
