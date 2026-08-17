@@ -20,7 +20,7 @@ set -euo pipefail
 # ─────────────────────────────────────────────────────────────
 # EDITAR ANTES DE EJECUTAR (debe coincidir con setup_s3.sh)
 # ─────────────────────────────────────────────────────────────
-ESTUDIANTE="tu-usuario"      # EDITAR: el mismo valor que usaste en setup_s3.sh
+ESTUDIANTE="dagutierrl"      # EDITAR: el mismo valor que usaste en setup_s3.sh
 ANIO="2026"                  # EDITAR si tu cohorte no es 2026
 # ─────────────────────────────────────────────────────────────
 
@@ -30,6 +30,7 @@ PROFILE_NAME="EMR_EC2_${ESTUDIANTE}_profile"
 POLICY_NAME="st1630-${ESTUDIANTE}-s3-min-privilegio"
 
 TMP_DIR="$(mktemp -d)"
+TMP_DIR_WIN="$(cygpath -w "${TMP_DIR}")"
 trap 'rm -rf "${TMP_DIR}"' EXIT
 
 echo "Rol objetivo: ${ROLE_NAME} (bucket: s3://${BUCKET_NAME})"
@@ -57,7 +58,7 @@ else
     echo "Creando rol ${ROLE_NAME}..."
     aws iam create-role \
         --role-name "${ROLE_NAME}" \
-        --assume-role-policy-document "file://${TMP_DIR}/trust-policy.json" >/dev/null
+        --assume-role-policy-document "file://${TMP_DIR_WIN}\\trust-policy.json" >/dev/null
 fi
 
 # 3. Crear el instance profile y asociar el rol -- EMR adjunta permisos
@@ -137,7 +138,7 @@ else
     echo "Creando política ${POLICY_NAME}..."
     aws iam create-policy \
         --policy-name "${POLICY_NAME}" \
-        --policy-document "file://${TMP_DIR}/policy-correcta.json" >/dev/null
+        --policy-document "file://${TMP_DIR_WIN}\\policy-correcta.json" >/dev/null
 fi
 
 echo "Adjuntando política al rol..."
